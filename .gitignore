@@ -1,11 +1,25 @@
-# Python
-__pycache__/
-*.pyc
+# Güvenlik ve Anahtarlar
 .env
-venv/
+vision_key.json
+*.pem
 
-# Node
+# Bağımlılıklar
 node_modules/
 
-# OS
+# Derleme Çıktıları
+dist/
+build/
+.cache/
+
+# Yüklemeler 
+server/uploads/covers/*
+!server/uploads/covers/.gitkeep
+
+# Python 
+__pycache__/
+*.pyc
+venv/
+
+# Sistem Dosyaları
 .DS_Store
+Thumbs.db

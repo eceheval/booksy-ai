@@ -1,19 +1,26 @@
 import express from "express";
 import cors from "cors";
+import path from "path";
 import booksRouter from "./routes/books.routes";
 
 const app = express();
 
-// middlewares
-app.use(cors());
+app.use(cors({
+  origin: process.env.FRONTEND_URL || "http://localhost:3000",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
 app.use(express.json());
 
-// health check
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
 app.get("/health", (_req, res) => {
-  res.json({ status: "ok", app: "booksy-ai-backend" });
+  res.json({ status: "ok", app: "booksy-ai-backend", timestamp: new Date() });
 });
 
-// routes
 app.use("/books", booksRouter);
+
+app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 
 export default app;
