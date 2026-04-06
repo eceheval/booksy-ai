@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
+
+* { box-sizing: border-box; }
+body, html, #root, .App { 
+  height: 100vh; width: 100vw; margin: 0; padding: 0; overflow: hidden; 
+  font-family: 'Quicksand', sans-serif; 
+}
+
+body {
+  background: linear-gradient(rgba(15, 10, 25, 0.75), rgba(15, 10, 25, 0.75)), 
+              url('./assets/yildizli.jpg');
+  background-size: 20%; 
+  background-repeat: repeat;
+  color: #fce7f3;
+}
+
+.main-layout { display: flex; height: 100vh; width: 100vw; }
+
+.library-section { 
+  flex: 1; padding: 40px; border-right: 3px solid rgba(236, 72, 153, 0.3); 
+  display: flex; flex-direction: column; align-items: center; overflow-y: auto;
+}
+
+.scan-section { 
+  flex: 1.5; padding: 40px; display: flex; flex-direction: column; 
+  align-items: center; justify-content: center; position: relative;
+}
+
+h1 { font-size: 3rem !important; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 30px; }
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(236, 72, 153, 0.2);
+  border-radius: 20px;
+  width: 100%;
+}
+
+.login-button, .match-button {
+  border: none;
+  border-radius: 15px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Quicksand', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.login-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(236, 72, 153, 0.5);
+}
+
+.login-button:hover {
+  background: rgba(236, 72, 153, 0.2);
+  transform: translateY(-2px);
+}
+
+.match-button:hover {
+  filter: brightness(1.2);
+  transform: scale(1.02);
+  box-shadow: 0 10px 20px rgba(236, 72, 153, 0.3);
+}
+
+.library-grid-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.library-grid-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(236, 72, 153, 0.4);
+}
+
+@keyframes fadeInZoom {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-in {
+  animation: fadeInZoom 0.4s ease-out forwards;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(236, 72, 153, 0.3);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(236, 72, 153, 0.6);
+}

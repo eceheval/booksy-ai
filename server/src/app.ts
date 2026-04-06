@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import path from "path";
 import booksRouter from "./routes/books.routes";
+import usersRouter from "./routes/users.routes"; 
 
 const app = express();
 
@@ -10,6 +11,8 @@ app.use(cors({
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
+
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')))
 
 app.use(express.json());
 
@@ -21,6 +24,6 @@ app.get("/health", (_req, res) => {
 
 app.use("/books", booksRouter);
 
-app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
+app.use("/users", usersRouter);
 
 export default app;
